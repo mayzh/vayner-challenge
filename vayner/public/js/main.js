@@ -50,33 +50,47 @@ $(document).ready(function() {
 
 //////////////DRAG AND DROP////////////////////
 
-$('.drag-row').draggable({
-    cursor: 'move',
-    helper: "clone"
-});
+// $('.drag-row').draggable({
+//     cursor: 'move',
+//     helper: "clone"
+// });
 
-$("#user1table").droppable({
-  drop: function(event, ui) {
-    var itemid = $(event.originalEvent.toElement).attr("itemid");
-    $('.drag-row').each(function() {
-      if ($(this).attr("itemid") === itemid) {
-        $(this).appendTo("#user1table");
-      }
-    });
-  }
-});
+// $("#user1table").droppable({
+//   drop: function(event, ui) {
+//     var itemid = $(event.originalEvent.toElement).attr("itemid");
+//     $('.drag-row').each(function() {
+//       if ($(this).attr("itemid") === itemid) {
+//         $(this).appendTo("#user1table");
+//       }
+//     });
+//   }
+// });
 
-$("#user2table").droppable({
-  drop: function(event, ui) {
-    var itemid = $(event.originalEvent.toElement).attr("itemid");
-    $('.drag-row').each(function() {
-      if ($(this).attr("itemid") === itemid) {
-        $(this).appendTo("#user2table");
-      }
-    });
-  }
-});
+// $("#user2table").droppable({
+//   drop: function(event, ui) {
+//     var itemid = $(event.originalEvent.toElement).attr("itemid");
+//     $('.drag-row').each(function() {
+//       if ($(this).attr("itemid") === itemid) {
+//         $(this).appendTo("#user2table");
+//       }
+//     });
+//   }
+// });
 
+// $( function() {
+//     $( ".drag-row" ).draggable();
+//     $( "#.drag-row" ).droppable({
+//       drop: function( event, ui ) {
+//         $( this )
+//           .append('dropped!');
+//       }
+//     });
+//   } );
 
+  $(function() {
+    $( "#table1_tbody, #table2_tbody").sortable({
+      connectWith: ".connectedSortable"
+    }).disableSelection();
+  });
 
 });
