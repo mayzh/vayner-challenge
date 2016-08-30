@@ -19,7 +19,7 @@ $(document).ready(function() {
   }).then(function(data) {
    // console.log(data);
     for(i = 0; i < data.length; i++){
-      $('.albums1').append(data[i].title + "<br>")
+     $('#user1table').append("<tr>" + "<td>" + data[i].title + "</td>" + "</tr>")
     }
   });
 
@@ -40,7 +40,7 @@ $(document).ready(function() {
   }).then(function(data) {
    // console.log(data);
     for(i = 0; i < data.length; i++){
-      $('.albums2').append(data[i].title + "<br>")
+     $('#user2table').append("<tr>" + "<td>" + data[i].title + "</td>" + "</tr>")
     }
   });
 
