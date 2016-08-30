@@ -1,10 +1,11 @@
 require('./app/index')
-
-//Http server
-
 const express = require('express')
 const app = express()
 const port = 3000
+const path = require('path')
+const exphbs = require('express-handlebars')
+
+//Http server
 
 app.get('/', (request, response) => {
   response.render('home', {
@@ -23,9 +24,6 @@ app.listen(port, (err) => {
 
 //Views
 
-const path = require('path')
-const exphbs = require('express-handlebars')
-
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs',
@@ -33,3 +31,7 @@ app.engine('.hbs', exphbs({
 }))
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'views'))
+
+//serve static files
+
+app.use(express.static(path.join(__dirname, 'public')));
