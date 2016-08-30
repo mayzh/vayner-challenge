@@ -93,4 +93,8 @@ $(document).ready(function() {
     }).disableSelection();
   });
 
+  $( ".connectedSortable" ).on( "sortstop", function( event, ui ) {
+    console.log('send ajax call now')
+  } );
+
 });
