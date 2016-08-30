@@ -22,7 +22,7 @@ $(document).ready(function() {
   }).then(function(data) {
    // console.log(data);
     for(i = 0; i < data.length; i++){
-     $('#user1table').append("<tr itemid='" + data[i].id + "' class='drag-row'>" + "<td>" + data[i].id + "</td>" + "<td>" + data[i].title + "</td>" + "</tr>")
+     $('#user1table').append("<tr itemid='" + data[i].id + "' class='user-one'>" + "<td>" + data[i].id + "</td>" + "<td>" + data[i].title + "</td>" + "</tr>")
     }
   });
 
@@ -43,49 +43,14 @@ $(document).ready(function() {
   }).then(function(data) {
    // console.log(data);
     for(i = 0; i < data.length; i++){
-     $('#user2table').append("<tr itemid='" + data[i].id + "' class='drag-row'>" + "<td>" + data[i].id + "</td>" + "<td>" + data[i].title + "</td>" + "</tr>")
+     $('#user2table').append("<tr itemid='" + data[i].id + "' class='user-two'>" + "<td>" + data[i].id + "</td>" + "<td>" + data[i].title + "</td>" + "</tr>")
     }
   });
 
 
 //////////////DRAG AND DROP////////////////////
 
-// $('.drag-row').draggable({
-//     cursor: 'move',
-//     helper: "clone"
-// });
 
-// $("#user1table").droppable({
-//   drop: function(event, ui) {
-//     var itemid = $(event.originalEvent.toElement).attr("itemid");
-//     $('.drag-row').each(function() {
-//       if ($(this).attr("itemid") === itemid) {
-//         $(this).appendTo("#user1table");
-//       }
-//     });
-//   }
-// });
-
-// $("#user2table").droppable({
-//   drop: function(event, ui) {
-//     var itemid = $(event.originalEvent.toElement).attr("itemid");
-//     $('.drag-row').each(function() {
-//       if ($(this).attr("itemid") === itemid) {
-//         $(this).appendTo("#user2table");
-//       }
-//     });
-//   }
-// });
-
-// $( function() {
-//     $( ".drag-row" ).draggable();
-//     $( "#.drag-row" ).droppable({
-//       drop: function( event, ui ) {
-//         $( this )
-//           .append('dropped!');
-//       }
-//     });
-//   } );
 
   $(function() {
     $( "#table1_tbody, #table2_tbody").sortable({
@@ -94,7 +59,20 @@ $(document).ready(function() {
   });
 
   $( ".connectedSortable" ).on( "sortstop", function( event, ui ) {
-    console.log('send ajax call now')
+    console.log('send ajax call now');
+
+      //This function activates on dropping the item, and this is where we would make the ajax call to the API.
+
+        // $.ajax({
+        //     url: root + '/albums?id=' + id,
+        //     type: "POST",
+        //     data: { 'userId': newID},
+        //     success: function()
+        //         {
+        //             console.log('API successfully updated.')
+        //         }
+        // });
+
   } );
 
 });
