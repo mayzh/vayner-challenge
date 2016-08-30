@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
   console.log('script loaded')
+
+/////////////AJAX CALLS//////////////
+
   var root = 'http://jsonplaceholder.typicode.com';
 
   $.ajax({
@@ -19,7 +22,7 @@ $(document).ready(function() {
   }).then(function(data) {
    // console.log(data);
     for(i = 0; i < data.length; i++){
-     $('#user1table').append("<tr>" + "<td>" + data[i].id + "</td>" + "<td>" + data[i].title + "</td>" + "</tr>")
+     $('#user1table').append("<tr itemid='" + data[i].id + "' class='drag-row'>" + "<td>" + data[i].id + "</td>" + "<td>" + data[i].title + "</td>" + "</tr>")
     }
   });
 
@@ -40,8 +43,40 @@ $(document).ready(function() {
   }).then(function(data) {
    // console.log(data);
     for(i = 0; i < data.length; i++){
-     $('#user2table').append("<tr>" + "<td>" + data[i].id + "</td>" + "<td>" + data[i].title + "</td>" + "</tr>")
+     $('#user2table').append("<tr itemid='" + data[i].id + "' class='drag-row'>" + "<td>" + data[i].id + "</td>" + "<td>" + data[i].title + "</td>" + "</tr>")
     }
   });
+
+
+//////////////DRAG AND DROP////////////////////
+
+$('.drag-row').draggable({
+    cursor: 'move',
+    helper: "clone"
+});
+
+$("#user1table").droppable({
+  drop: function(event, ui) {
+    var itemid = $(event.originalEvent.toElement).attr("itemid");
+    $('.drag-row').each(function() {
+      if ($(this).attr("itemid") === itemid) {
+        $(this).appendTo("#user1table");
+      }
+    });
+  }
+});
+
+$("#user2table").droppable({
+  drop: function(event, ui) {
+    var itemid = $(event.originalEvent.toElement).attr("itemid");
+    $('.drag-row').each(function() {
+      if ($(this).attr("itemid") === itemid) {
+        $(this).appendTo("#user2table");
+      }
+    });
+  }
+});
+
+
 
 });
