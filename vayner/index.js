@@ -8,9 +8,7 @@ const exphbs = require('express-handlebars')
 //Http server
 
 app.get('/', (request, response) => {
-  response.render('home', {
-    name: 'Dan'
-  })
+  response.render('home', {})
 })
 
 app.listen(port, (err) => {
