@@ -40,8 +40,12 @@
   text-align: center;
 }
 
-tr:nth-child(even) {background: #CCC}
-tr:nth-child(odd) {background: #FFF}
+tr:nth-child(even) {
+  background: #4db6ac;
+}
+tr:nth-child(odd) {
+  background: #FFF;
+}
 
 td{
   padding-left: 20px;
@@ -57,4 +61,10 @@ th{
   padding-bottom: 5px;
   font-size: 22px;
   /* border-bottom: 3px solid teal; */
+}
+.data-id{
+border-radius: 6px 0px 0px 6px;
+}
+.album-title{
+  border-radius: 0px 6px 6px 0px;
 }

@@ -22,7 +22,7 @@ $(document).ready(function() {
   }).then(function(data) {
    // console.log(data);
     for(i = 0; i < data.length; i++){
-     $('#user1table').append("<tr itemid='" + data[i].id + "' class='user-one'>" + "<td>" + data[i].id + "</td>" + "<td>" + data[i].title + "</td>" + "</tr>")
+     $('#user1table').append("<tr itemid='" + data[i].id + "' class='user-one'>" + "<td class='data-id'>" + data[i].id + "</td>" + "<td class='album-title'>" + data[i].title + "</td>" + "</tr>")
     }
   });
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
   }).then(function(data) {
    // console.log(data);
     for(i = 0; i < data.length; i++){
-     $('#user2table').append("<tr itemid='" + data[i].id + "' class='user-two'>" + "<td>" + data[i].id + "</td>" + "<td>" + data[i].title + "</td>" + "</tr>")
+     $('#user2table').append("<tr itemid='" + data[i].id + "' class='user-two'>" + "<td class='data-id'>" + data[i].id + "</td>" + "<td class='album-title'>" + data[i].title + "</td>" + "</tr>")
     }
   });
 
