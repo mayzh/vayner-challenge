@@ -16,18 +16,20 @@
   box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.57);
 }
 #main-container {
+  margin-top: 25px;
   display: inline-flex;
   width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 #container1{
-  width: 45%;
+  width: 40%;
   margin-left: 5%;
-  margin-right: 2.5%;
+  margin-right: 5%;
 }
 #container2{
-  width: 45%;
+  width: 40%;
   margin-right: 5%;
-  margin-left: 2.5%;
+  margin-left: 5%;
 }
 .user1{
   font-size: 20px;
@@ -38,13 +40,21 @@
   text-align: center;
 }
 
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
 
 td{
   padding-left: 20px;
   padding-right: 20px;
   overflow: scroll;
+  padding-top: 5px;
+  padding-bottom: 2px;
+  height: 48px;
 }
 th{
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 5px;
+  font-size: 22px;
+  /* border-bottom: 3px solid teal; */
 }
